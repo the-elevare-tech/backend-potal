@@ -4,7 +4,6 @@ const { protect, restrictTo } = require('../middleware/authMiddleware');
 const {
     getAllUsers,
     getUser,
-    createUser,
     updateUser,
     deleteUser,
     login,

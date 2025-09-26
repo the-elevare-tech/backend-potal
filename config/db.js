@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const createDefaultAdmin = require('../seeders/adminSeeder');
 
 const connectDB = async () => {
     try {
@@ -7,6 +8,9 @@ const connectDB = async () => {
             useUnifiedTopology: true,
         });
         console.log(`MongoDB Connected: ${conn.connection.host}`);
+
+        // Create default admin after successful connection
+        await createDefaultAdmin();
     } catch (error) {
         console.error(`Error: ${error.message}`);
         process.exit(1);
